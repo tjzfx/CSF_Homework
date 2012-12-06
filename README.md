@@ -1,0 +1,1 @@
+Welcome to Software Engineering at Scale's shared repository!
