@@ -58,10 +58,10 @@ public class RandomPartner {
 					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2] + ", " + listOfStudents[student3]);
 					j++;
 				}
-		}
+			}
 	
-	}
+		}
 
-}
+	}
 
 }
