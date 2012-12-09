@@ -8,25 +8,20 @@ public class RandomPartner {
 		Scanner scanner = new Scanner(System.in);
 		int numberOfStudents = scanner.nextInt();
 		String[] listOfStudents = collectStudentNames(numberOfStudents);
-		assignRandomPartners();
-
+		assignRandomPartners(listOfStudents, numberOfStudents);
 	}
 
-	public static void assignRandomPartners() {
-		/*
-		System.out.println("How many students are there?");
-		Scanner scanner = new Scanner(System.in);
-		int numberOfStudents = scanner.nextInt();
-		String[] listOfStudents = new String[numberOfStudents];
-		
-		// Get student's names		
-		for (int i = 0; i < numberOfStudents; i++) {
+	public static String[] collectStudentNames(int n) {
+		String[] listOfStudents = new String[n];
+		for (int i = 0; i < n; i++) {
 			System.out.println("Enter name: ");
 	        Scanner enteredName = new Scanner(System.in);
 	        listOfStudents[i] = enteredName.next();
 		}
-		*/
-		
+		return listOfStudents;
+	}
+	
+	public static void assignRandomPartners(String[] studentNames, int numberOfStudents) {		
 		ArrayList<Integer> matchedStudents = new ArrayList<Integer>(0);
 		// Check if number of students is even and perform random matching accordingly
 		if (numberOfStudents % 2 == 0) {
@@ -39,7 +34,7 @@ public class RandomPartner {
 					// Add students to matchedStudents array that stores students who have already been matched
 					matchedStudents.add(student1);
 					matchedStudents.add(student2);
-					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2]);
+					System.out.println(studentNames[student1] + ", " + studentNames[student2]);
 				}
 			}
 		} else {
@@ -52,7 +47,7 @@ public class RandomPartner {
 					// Add students to matchedStudents array that stores students who have already been matched
 					matchedStudents.add(student1);
 					matchedStudents.add(student2);
-					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2]);
+					System.out.println(studentNames[student1] + ", " + studentNames[student2]);
 				}
 			}
 			int j = 0;
@@ -61,23 +56,13 @@ public class RandomPartner {
 				int student2 = (int) (Math.random() * numberOfStudents);
 				int student3 = (int) (Math.random() * numberOfStudents);
 				if (student1 != student2 && student1 != student3 && student2 != student3 && !matchedStudents.contains(student1) && !matchedStudents.contains(student2) && !matchedStudents.contains(student3)) {
-					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2] + ", " + listOfStudents[student3]);
+					System.out.println(studentNames[student1] + ", " + studentNames[student2] + ", " + studentNames[student3]);
 					j++;
 				}
 			}
 	
 		}
 
-	}
-	
-	public String[] collectStudentNames(int n) {
-		String[] listOfStudents = new String[n];
-		for (int i = 0; i < n; i++) {
-			System.out.println("Enter name: ");
-	        Scanner enteredName = new Scanner(System.in);
-	        listOfStudents[i] = enteredName.next();
-		}
-		return listOfStudents;
 	}
 
 }
