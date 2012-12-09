@@ -4,22 +4,28 @@ import java.util.Scanner;
 public class RandomPartner {
 
 	public static void main(String[] args) {
+		System.out.println("How many students are there?");
+		Scanner scanner = new Scanner(System.in);
+		int numberOfStudents = scanner.nextInt();
+		String[] listOfStudents = collectStudentNames(numberOfStudents);
 		assignRandomPartners();
 
 	}
 
 	public static void assignRandomPartners() {
+		/*
 		System.out.println("How many students are there?");
 		Scanner scanner = new Scanner(System.in);
 		int numberOfStudents = scanner.nextInt();
 		String[] listOfStudents = new String[numberOfStudents];
 		
-		// Get student's names
+		// Get student's names		
 		for (int i = 0; i < numberOfStudents; i++) {
 			System.out.println("Enter name: ");
 	        Scanner enteredName = new Scanner(System.in);
 	        listOfStudents[i] = enteredName.next();
 		}
+		*/
 		
 		ArrayList<Integer> matchedStudents = new ArrayList<Integer>(0);
 		// Check if number of students is even and perform random matching accordingly
@@ -62,6 +68,16 @@ public class RandomPartner {
 	
 		}
 
+	}
+	
+	public String[] collectStudentNames(int n) {
+		String[] listOfStudents = new String[n];
+		for (int i = 0; i < n; i++) {
+			System.out.println("Enter name: ");
+	        Scanner enteredName = new Scanner(System.in);
+	        listOfStudents[i] = enteredName.next();
+		}
+		return listOfStudents;
 	}
 
 }
