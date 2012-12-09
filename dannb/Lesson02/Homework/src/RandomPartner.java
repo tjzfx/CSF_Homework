@@ -1,15 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+public class RandomPartner {
 
-public class main {
-	
 	public static void main(String[] args) {
-		
 		assignRandomPartners();
 
-		}
-	
+	}
+
 	public static void assignRandomPartners() {
 		System.out.println("How many students are there?");
 		Scanner scanner = new Scanner(System.in);
@@ -51,13 +49,19 @@ public class main {
 					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2]);
 				}
 			}
-			int student1 = (int) (Math.random() * numberOfStudents);
-			int student2 = (int) (Math.random() * numberOfStudents);
-			int student3 = (int) (Math.random() * numberOfStudents);
-			if (student1 != student2 && student1 != student3 && student2 != student3 && !matchedStudents.contains(student1) && !matchedStudents.contains(student2) && !matchedStudents.contains(student3)) {
-				System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2] + ", " + listOfStudents[student3]);
+			int j = 0;
+			while (j < 1) {
+				int student1 = (int) (Math.random() * numberOfStudents);
+				int student2 = (int) (Math.random() * numberOfStudents);
+				int student3 = (int) (Math.random() * numberOfStudents);
+				if (student1 != student2 && student1 != student3 && student2 != student3 && !matchedStudents.contains(student1) && !matchedStudents.contains(student2) && !matchedStudents.contains(student3)) {
+					System.out.println(listOfStudents[student1] + ", " + listOfStudents[student2] + ", " + listOfStudents[student3]);
+					j++;
+				}
 		}
 	
 	}
+
+}
 
 }
