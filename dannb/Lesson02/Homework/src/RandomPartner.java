@@ -8,10 +8,11 @@ public class RandomPartner {
 		Scanner scanner = new Scanner(System.in);
 		int numberOfStudents = scanner.nextInt();
 		String[] listOfStudents = collectStudentNames(numberOfStudents);
-		assignRandomPartners(listOfStudents, numberOfStudents);
+		assignAndPrintRandomPartners(listOfStudents, numberOfStudents);
 	}
 
 	public static String[] collectStudentNames(int n) {
+		// Creates and returns an Array filled with all the students' names.
 		String[] listOfStudents = new String[n];
 		for (int i = 0; i < n; i++) {
 			System.out.println("Enter name: ");
@@ -21,7 +22,7 @@ public class RandomPartner {
 		return listOfStudents;
 	}
 	
-	public static void assignRandomPartners(String[] studentNames, int numberOfStudents) {		
+	public static void assignAndPrintRandomPartners(String[] studentNames, int numberOfStudents) {		
 		ArrayList<Integer> matchedStudents = new ArrayList<Integer>(0);
 		// Check if number of students is even and perform random matching accordingly
 		if (numberOfStudents % 2 == 0) {
@@ -37,7 +38,8 @@ public class RandomPartner {
 					System.out.println(studentNames[student1] + ", " + studentNames[student2]);
 				}
 			}
-		} else {
+		} else {			
+			// Do the same as above, until there are only three students left
 			while (numberOfStudents - matchedStudents.size() > 3) {
 				// Pick random student by generating random int between 0 and numberOfStudents
 				int student1 = (int) (Math.random() * numberOfStudents);
@@ -50,6 +52,7 @@ public class RandomPartner {
 					System.out.println(studentNames[student1] + ", " + studentNames[student2]);
 				}
 			}
+			// Now that there are 3 students left, randomly match and print them
 			int j = 0;
 			while (j < 1) {
 				int student1 = (int) (Math.random() * numberOfStudents);
