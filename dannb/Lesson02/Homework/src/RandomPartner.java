@@ -8,7 +8,7 @@ public class RandomPartner {
 		Scanner scanner = new Scanner(System.in);
 		int numberOfStudents = scanner.nextInt();
 		String[] listOfStudents = collectStudentNames(numberOfStudents);
-		assignAndPrintRandomPartners(listOfStudents, numberOfStudents);
+		assignAndPrintPartners(listOfStudents, numberOfStudents);
 	}
 
 	public static String[] collectStudentNames(int n) {
@@ -22,19 +22,25 @@ public class RandomPartner {
 		return listOfStudents;
 	}
 	
-	/*
-	 * NOT WORKING YET :(
+
 	public static void assignAndPrintPartners(String[] studentNames, int numberOfStudents) {
+		// Create an array to store students once they've been matched to a partner
 		ArrayList<Integer> matchedStudents = new ArrayList<Integer>(0);
 		while (matchedStudents.size() < numberOfStudents) {
+			// If there are three student left, match all three together
 			if (numberOfStudents - matchedStudents.size() == 3) {
 				int counter = 0;
 				while (counter < 1) {
+					// Pick random student by generating random int between 0 and numberOfStudents
 					int student1 = (int) (Math.random() * numberOfStudents);
 					int student2 = (int) (Math.random() * numberOfStudents);
 					int student3 = (int) (Math.random() * numberOfStudents);
+					// Make sure random students aren't the same and that they haven't yet been matched
 					if (student1 != student2 && student1 != student3 && student2 != student3 && !matchedStudents.contains(student1) && !matchedStudents.contains(student2) && !matchedStudents.contains(student3)) {
 						System.out.println(studentNames[student1] + ", " + studentNames[student2] + ", " + studentNames[student3]);
+						matchedStudents.add(student1);
+						matchedStudents.add(student2);
+						matchedStudents.add(student3);
 						counter++;
 					}
 				}
@@ -42,19 +48,19 @@ public class RandomPartner {
 				// Pick random student by generating random int between 0 and numberOfStudents
 				int student1 = (int) (Math.random() * numberOfStudents);
 				int student2 = (int) (Math.random() * numberOfStudents);
-				// Make sure the two students aren't the same and that they haven't been assigned yet
+				// Make sure the two students aren't the same and that they haven't been matched yet
 				if (student1 != student2 && !matchedStudents.contains(student1) && !matchedStudents.contains(student2)) {
 					// Add students to matchedStudents array that stores students who have already been matched
 					matchedStudents.add(student1);
 					matchedStudents.add(student2);
 					System.out.println(studentNames[student1] + ", " + studentNames[student2]);
-					break;
 				}				
 			}
 		}
 	}	
-	*/
 	
+	/*
+	 * OLD AND MORE COMPLICATED ALGORITHM
 	public static void assignAndPrintRandomPartners(String[] studentNames, int numberOfStudents) {		
 		ArrayList<Integer> matchedStudents = new ArrayList<Integer>(0);
 		// Check if number of students is even and perform random matching accordingly
@@ -100,5 +106,6 @@ public class RandomPartner {
 		}
 
 	}
+	*/
 
 }
