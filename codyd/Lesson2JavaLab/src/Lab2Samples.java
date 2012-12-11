@@ -108,7 +108,7 @@ public class Lab2Samples {
     		System.out.println("True! This string contains a genetic sequence.");
     	}
     	else {
-    		System.out.println("False. Not a genetic sequence.");
+    		System.out.println("False. Not a sequence.");
     	}
         // 1) Ask the user for a string
         // 2) If the string contains only the characters 'G', 'A', 'T', or 'C' (case-sensitive) print true
