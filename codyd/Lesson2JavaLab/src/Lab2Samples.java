@@ -8,8 +8,8 @@ public class Lab2Samples {
         //weirdLoop();
         //allAs();
         //reverseNumbers();
-        reverseArray();
-        //isGeneticSequence();
+        //reverseArray();
+        isGeneticSequence();
         //inputAndSearch();
     }
     
@@ -101,6 +101,15 @@ public class Lab2Samples {
      }
 
     public static void isGeneticSequence() {
+    	Scanner scanner = new Scanner(System.in);
+    	System.out.println("Please enter a string of characters (include GATC if you ever want a true result) ");
+    	String letterSequence = scanner.next();
+    	if (letterSequence.contains("GATC")) {
+    		System.out.println("True! This string contains a genetic sequence.");
+    	}
+    	else {
+    		System.out.println("False. Not a genetic sequence.");
+    	}
         // 1) Ask the user for a string
         // 2) If the string contains only the characters 'G', 'A', 'T', or 'C' (case-sensitive) print true
         // 3) Otherwise, print false
