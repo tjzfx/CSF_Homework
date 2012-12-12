@@ -1,16 +1,38 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class LinkedListPractice {
 
-	public static void main(String[] args) {
-		IntLinkedList newLinkedList = new IntLinkedList();
-		System.out.println("Enter a number in the format 'add n': ");
-		Scanner scanner = new Scanner(System.in);
-		String userStringInput = scanner.next();
-	    int userIntInput = scanner.nextInt();
-	    newLinkedList.insert(userIntInput);
-	    newLinkedList.print();
-	}
+    public static void main(String[] args) {
+        Scanner consoleScanner = new Scanner(System.in);
+        System.out.print("\nEnter 'list' to start: ");
+        String command = consoleScanner.next();
+        if (command.equals("list")) {
+            linkedList();
+        }
+        else {
+            System.out.println("Invalid input, bailing");
+        }
+    }
+
+    public static void linkedList() {
+        IntLinkedList list =  new IntLinkedList();
+
+        while(true) {
+            Scanner consoleScanner = new Scanner(System.in);
+            System.out.print("\nEnter {add/remove} number to modify the list: ");
+            String command = consoleScanner.next();
+            int value = consoleScanner.nextInt();
+
+            if (command.equals("add")) {
+                list.insert(value);
+            }
+            else if (command.equals("remove")) {
+                list.remove(value);
+            }
+
+            list.print();
+        }
+    }
 }
 	
 	
