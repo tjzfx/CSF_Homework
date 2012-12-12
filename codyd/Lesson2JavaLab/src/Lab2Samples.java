@@ -12,7 +12,7 @@ public class Lab2Samples {
         isGeneticSequence();
         //inputAndSearch();
     }
-    
+
     public static void equalsTest()
     {
         System.out.println("String!" == "String!");

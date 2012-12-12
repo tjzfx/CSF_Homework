@@ -3,7 +3,7 @@ import java.util.*;
 public class CodeReviewRandomizer {
 	
 	public static void main(String[] args) {
-		String[] nameList = {"David", "Cody", "Ryan", "Mansi", "Dann", "Jose", "RyanBy", "RyanBl", "Parker"};
+		String[] nameList = {"Cody", "Davis", "Mansi", "Dann", "Jose", "RyanBy", "RyanBl", "Parker"};
 		assignPartners(randomizeNames(nameList));
 	}
 			
