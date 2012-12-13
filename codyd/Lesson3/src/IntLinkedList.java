@@ -31,8 +31,6 @@ public class IntLinkedList {
         // This should step through each node
         // and print out the value in each, from first to last
         // Order for the print-out of list containing 1, 2, 3, 4, 5, 6: "1 2 3 4 5 6"
-    	
-    	// Set node to the firstNode;
         IntListNode node = firstNode;
         while (true) {
         	System.out.print(" " + node.value);
@@ -49,6 +47,17 @@ public class IntLinkedList {
     public void remove(int value) {
         // Remove the node that contains this value from the list
         // If no such node exists in the list, no action should be taken
+//    	IntListNode node = firstNode;
+//    	while(true) {
+//	    	if (node.value == value) {
+//	    		node = node.nextNode;
+//	    		node.next
+//	    	}
+//	    	else {
+//	    		node = node.nextNode
+//	    	}
+//    	}
+    	
         System.out.println("Remove Not Implemented");
     }
 
