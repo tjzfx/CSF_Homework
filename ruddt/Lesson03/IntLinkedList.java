@@ -32,7 +32,11 @@ public class IntLinkedList {
         // This should step through each node
         // and print out the value in each, from first to last
         // Order for the print-out of list containing 1, 2, 3, 4, 5, 6: "1 2 3 4 5 6"
-        System.out.println("Print Not Implemented");
+        IntListNode currentNode = firstNode;
+        while( currentNode != null) {
+            System.out.print(currentNode.value + " ");
+            currentNode = currentNode.nextNode;
+        }
     }
 
     // TODO: For next Tuesday
