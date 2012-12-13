@@ -46,4 +46,13 @@ public class IntBST {
         // If the current node exists and its value is equal to the input, return true, else return false
         return currentNode != null && (currentNode.getValue() == value);
     }
+
+    public void remove(int value) {
+        // TODO: Optional Challenge HW Question for next Tuesday
+        // To remove, first examine the find the node, then:
+        // 1) Node N has no children? Just remove N
+        // 2) Node N has one child? Just remove N and replace with the child
+        // 3) Node N has two children? A little harder. Either take the in-order successor or predecessor R, swap the values of N and R, then delete R
+
+    }
 }
