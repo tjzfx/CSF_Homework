@@ -13,12 +13,18 @@ public class IntStack {
     }
 
     public int pop() {
-        System.out.println("Pop not implemented");
-        return 0;
+    	int topOfStack = firstNode.value;
+        firstNode = firstNode.nextNode;   	
+        return topOfStack;
     }
 
-    public int size() {
-        System.out.println("Size not implemented");
-        return 0;
+    public int size() {        
+    	int count = 1;
+    	IntListNode node = firstNode;
+    	while (node.nextNode != null) {
+    		node = node.nextNode;
+    		count++;
+    	}
+    	return count;
     }
 }
