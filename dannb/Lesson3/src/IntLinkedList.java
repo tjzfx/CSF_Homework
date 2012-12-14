@@ -41,8 +41,16 @@ public class IntLinkedList {
 
     // TODO: For next Tuesday
     public void remove(int value) {
-        // Remove the node that contains this value from the list
+    	// Remove the node that contains this value from the list
         // If no such node exists in the list, no action should be taken
+    	IntListNode currentNode = firstNode;
+    	while (currentNode != null) {
+    		if (currentNode.value == value) {
+    			// gotta get to previous node somehow?
+    		} else {
+    			currentNode = currentNode.nextNode;
+    		}
+    	}
         System.out.println("Remove Not Implemented");
     }
 
