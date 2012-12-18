@@ -11,6 +11,10 @@ public class IntNode {
     public int getValue() {
         return value;
     }
+    
+    public void setValue(int i) {
+    	this.value = i;
+    }
 
     public IntNode getLeftChild() {
         return leftChild;

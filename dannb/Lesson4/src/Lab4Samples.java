@@ -22,7 +22,7 @@ public class Lab4Samples {
 
         while(true) {
             Scanner consoleScanner = new Scanner(System.in);
-            System.out.print("\nType 'insert {number}' or 'find {number}' to insert/find into the BST: ");
+            System.out.print("\nType 'insert {number}' 'find {number}' or remove {number} to perform BST action: ");
             String command = consoleScanner.next();
             int value = consoleScanner.nextInt();
 
@@ -32,6 +32,10 @@ public class Lab4Samples {
             }
             else if (command.equals("find")) {
                 System.out.println("It is " + bst.search(value) + " that " + value + " exists in the BST.");
+            }
+            else if (command.equals("remove")) {
+            	bst.remove(value);
+            	bst.printTree();
             }
         }
     }

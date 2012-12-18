@@ -33,7 +33,7 @@ public class IntLinkedList {
         // and print out the value in each, from first to last
         // Order for the print-out of list containing 1, 2, 3, 4, 5, 6: "1 2 3 4 5 6"
         IntListNode currentNode = firstNode;
-        while( currentNode != null) {
+        while (currentNode != null) {
             System.out.print(currentNode.value + " ");
             currentNode = currentNode.nextNode;
         }
@@ -41,17 +41,31 @@ public class IntLinkedList {
 
     // TODO: For next Tuesday
     public void remove(int value) {
+    	// DIRECTIONS
     	// Remove the node that contains this value from the list
         // If no such node exists in the list, no action should be taken
+    	
     	IntListNode currentNode = firstNode;
-    	while (currentNode != null) {
-    		if (currentNode.value == value) {
-    			// gotta get to previous node somehow?
-    		} else {
-    			currentNode = currentNode.nextNode;
-    		}
-    	}
-        System.out.println("Remove Not Implemented");
+    	IntListNode parentNode = null;
+        
+    	// Find node to remove as well as its parent node
+    	while (currentNode != null && currentNode.value != value) {
+            parentNode = currentNode;
+            currentNode = currentNode.nextNode;
+        }
+        
+    	// if a number is entered that's not a value in a node, this if will catch it
+    	if (parentNode != null && currentNode == null) {
+        	System.out.println(value + " is not in the list.");
+        	System.out.println("Current list: ");
+        } else {
+	        // if parentNode is null then it's the first node in the list
+        	if (parentNode != null) {
+	        	parentNode.nextNode = currentNode.nextNode;
+	        } else {
+	        	firstNode = currentNode.nextNode;
+	        }
+        }
     }
 
     // TODO: Optional Challenge HW Question for next Tuesday:
