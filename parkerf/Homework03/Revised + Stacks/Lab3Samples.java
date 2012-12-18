@@ -22,17 +22,26 @@ public class Lab3Samples {
 
         while(true) {
             Scanner consoleScanner = new Scanner(System.in);
-            System.out.print("\nEnter {add/remove} number to modify the list: ");
+            System.out.print("\nEnter a command: \n {add/remove} number to modify the list, \n {count} to see how many nodes exist in the list, \n {print} to return the values stored in each node: ");
             String command = consoleScanner.next();
-            int value = consoleScanner.nextInt();
+            
 
             if (command.equals("add")) {
-                list.insert(value);
+            	int value = consoleScanner.nextInt();       	  
+            	list.insert(value);
             }
             else if (command.equals("remove")) {
-                list.remove(value);
+            	int value = consoleScanner.nextInt();  
+            	list.remove(value);
             }
-            list.print();
+            else if (command.equals("count")) {
+            	
+            	System.out.println("There are " + list.count() + " items in the list.");
+            }
+            else if (command.equals("print"))
+            {
+                list.print();
+            }
         }
     }
 
@@ -48,11 +57,13 @@ public class Lab3Samples {
                 int value = consoleScanner.nextInt();
 
                 stack.push(value);
-                System.out.println("Stack pushed value: " + value + ", size is " + stack.size());
+                System.out.println("Stack pushed value: " + value + ", size is: " + stack.size());
             }
+          
             else if (command.equals("pop")) {
-                System.out.println("Stack popped value: " + stack.pop() + ", size is " + stack.size());
+                System.out.println("Stack popped value: " + stack.pop() + ", size is: " + stack.size());
             }
+           
         }
     }
 }

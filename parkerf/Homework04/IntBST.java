@@ -20,27 +20,31 @@ public class IntBST {
         }
     }
 
-    public void insertValue(int value) {
+    public void insertValue(int value) {	   
+        
+    	IntNode newNode = new IntNode(value);
+     
         if (rootNode == null) {
-            rootNode = new IntNode(value);
+        rootNode = new IntNode(value);
         }
         else {
-            IntNode currentNode = rootNode;
-
-            while (currentNode.getValue() != value) {
-                if (value > currentNode.getValue()) { // Right child path
-                    if (currentNode.getRightChild() == null) {
-                        currentNode.setRightChild(new IntNode(value));
-                    }
-                    currentNode = currentNode.getRightChild();
-                }
-                else { // Left child path
-                    if (currentNode.getLeftChild() == null) {
-                        currentNode.setLeftChild(new IntNode(value));
-                    }
-                    currentNode = currentNode.getLeftChild();
-                }
-            }
+            IntNode currentNode = rootNode; 
+            IntNode parent;
+            while(currentNode != null && (currentNode.getValue() != value)) {
+            	parent = currentNode;
+            	if ( value > currentNode.getValue()) {
+            		currentNode = currentNode.getRightChild();
+            		if (currentNode == null) {
+            			parent.setRightChild(newNode);       			
+            		}
+            	}
+            	else {
+            		currentNode = currentNode.getLeftChild();
+            		if (currentNode == null ) {
+            			parent.setLeftChild(newNode);
+            		}
+            	}
+            }           
         }
     }
 
@@ -65,6 +69,23 @@ public class IntBST {
         // 1) Node N has no children? Just remove N
         // 2) Node N has one child? Just remove N and replace with the child
         // 3) Node N has two children? A little harder. Either take the in-order successor or predecessor R, swap the values of N and R, then delete R
-
+    	
+    	IntNode currentNode = rootNode;
+    	IntNode parent;
+    	IntNode child;
+    	while(currentNode != null && (currentNode.getValue() != value)) {
+    		if (value > currentNode.getValue()) {
+    			currentNode = currentNode.getRightChild();
+    		}
+    		else {
+    			currentNode = currentNode.getLeftChild();
+    		}  		
+    	}
+    	if (currentNode != null && (currentNode.getvalue() == value && currentNode)
+    			
+    			return currentNode != null && (currentNode.getValue() == value);
+    	
+    	
+    	
     }
 }
