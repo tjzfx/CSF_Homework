@@ -6,19 +6,27 @@ public class IntStack {
     }
 
     public void push(int value) {
-        IntListNode node = new IntListNode();
-        node.value = value;
-        node.nextNode = firstNode;
+        IntListNode node = new IntListNode(value);
+        node.setNextNode(firstNode);
         firstNode = node;
     }
 
     public int pop() {
-        System.out.println("Pop not implemented");
-        return 0;
+        int value = 0;
+        if (firstNode != null) {
+            value = firstNode.getValue();
+            firstNode = firstNode.getNextNode();
+        }
+        return value;
     }
 
     public int size() {
-        System.out.println("Size not implemented");
-        return 0;
+        int size = 0;
+        IntListNode node = firstNode;
+        while (node != null) {
+            size++;
+            node = node.getNextNode();
+        }
+        return size;
     }
 }

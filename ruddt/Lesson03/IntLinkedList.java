@@ -1,63 +1,52 @@
 
-// This class stores a linked-list of unique int values
 public class IntLinkedList {
-    // When a new IntLinkedList is created, Java makes firstNode == null by default
-    public IntListNode firstNode;
+    private IntListNode firstNode;
+
+    // IntLinkedList stores a list of unique integers
+    public IntLinkedList() {
+    }
 
     // Add the integer, or take no action if it's already in the list
     public void insert(int value) {
         if (firstNode == null) {
-            // This was an empty, newly created list, so set the first node and its value
-            firstNode = new IntListNode();
-            firstNode.value = value;
+            firstNode = new IntListNode(value);
         }
         else {
-            // There was a first node, so find the 'terminal' node,
-            // which is the node that has a nextNode == null
             IntListNode node = firstNode;
-            while (node != null && node.value != value) {
-                if (node.nextNode == null) {
-                    IntListNode nextNode = new IntListNode();
-                    nextNode.value = value;
-                    node.nextNode = nextNode;
+            while (node != null && node.getValue() != value) {
+                if (node.getNextNode() == null) {
+                    node.setNextNode(new IntListNode(value));
                 }
-
-                node = node.nextNode;
+                node = node.getNextNode();
              }
         }
     }
 
-    // TODO: For this Thursday
-    public void print() {
-        // This should step through each node
-        // and print out the value in each, from first to last
-        // Order for the print-out of list containing 1, 2, 3, 4, 5, 6: "1 2 3 4 5 6"
-        IntListNode currentNode = firstNode;
-        while( currentNode != null) {
-            System.out.print(currentNode.value + " ");
-            currentNode = currentNode.nextNode;
+    // Remove the given integer from the list, or take no action if it's not in the list
+    public void remove(int value) {
+        IntListNode previousNode = null;
+        IntListNode node = firstNode;
+
+        while (node != null) {
+            if (node.getValue() == value) {
+                // Found it, now we remove and swap nodes
+                if (node == firstNode) {
+                    firstNode = firstNode.getNextNode();
+                }
+                else {
+                    previousNode.setNextNode(node.getNextNode());
+                }
+            }
+            previousNode = node;
+            node = node.getNextNode();
         }
     }
 
-    // TODO: For next Tuesday
-    public void remove(int value) {
-        // Remove the node that contains this value from the list
-        // If no such node exists in the list, no action should be taken
-        System.out.println("Remove Not Implemented");
-    }
-
-    // TODO: Optional Challenge HW Question for next Tuesday:
-    public int count() {
-        // This method should return an int with the current count of objects in the list
-        // Leave a comment with the Big-O complexity of this method
-        // Hint: With a little extra work it can be done in O(1) time
-        return 0;
-    }
-
-    // TODO: Optional Challenge HW Question for next Tuesday:
-    public void reverse() {
-        // This method should completely reverse the linked list
-        // Leave a comment with the Big-O complexity of this method
-        // (note: extremely popular interview question)
+    public void print() {
+        IntListNode node = firstNode;
+        while (node != null) {
+            System.out.print(node.getValue() + " ");
+            node = node.getNextNode();
+        }
     }
 }

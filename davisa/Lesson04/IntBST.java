@@ -5,6 +5,7 @@ public class IntBST {
     private IntNode rootNode;
 
     public void printTree() {
+    	// change LinkedList to Stack in order to sort In-Order Depth-first, rather than breadth-first
         LinkedList<IntNode> queue = new LinkedList<IntNode>();
         queue.add(rootNode);
         System.out.print("BFS of BST:" );
@@ -26,19 +27,14 @@ public class IntBST {
         }
         else {
             IntNode currentNode = rootNode;
-
-            while (currentNode.getValue() != value) {
-                if (value > currentNode.getValue()) { // Right child path
-                    if (currentNode.getRightChild() == null) {
-                        currentNode.setRightChild(new IntNode(value));
-                    }
-                    currentNode = currentNode.getRightChild();
+            while(currentNode.getValue() != value) {
+                if (value > currentNode.getValue()) { // Continue down the right child path
+                	if(currentNode.getRightChild() == null) currentNode.setRightChild(new IntNode(value));
+            		currentNode = currentNode.getRightChild();
                 }
-                else { // Left child path
-                    if (currentNode.getLeftChild() == null) {
-                        currentNode.setLeftChild(new IntNode(value));
-                    }
-                    currentNode = currentNode.getLeftChild();
+                else { // Continue down the left child path
+                	if(currentNode.getLeftChild() == null) currentNode.setLeftChild(new IntNode(value));
+            		currentNode = currentNode.getLeftChild();
                 }
             }
         }

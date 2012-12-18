@@ -48,10 +48,10 @@ public class Lab3Samples {
                 int value = consoleScanner.nextInt();
 
                 stack.push(value);
-                System.out.println("Stack pushed value: " + value + ", size is " + stack.size());
+                System.out.println("Stack pushed value: " + value + ", size is: " + stack.size());
             }
             else if (command.equals("pop")) {
-                System.out.println("Stack popped value: " + stack.pop() + ", size is " + stack.size());
+                System.out.println("Stack popped value: " + stack.pop() + ", size is: " + stack.size());
             }
         }
     }
