@@ -22,7 +22,7 @@ public class LinkedListPractice {
 
         while(true) {
             Scanner consoleScanner = new Scanner(System.in);
-            System.out.print("\nEnter {add/remove} number to modify the list: ");
+            System.out.print("\nEnter {add/remove} and a number to modify the list (or just {reverse 0} to reverse the list) : ");
             String command = consoleScanner.next();
             int value = consoleScanner.nextInt();
 
