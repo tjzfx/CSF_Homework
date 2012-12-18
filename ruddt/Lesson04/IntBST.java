@@ -25,10 +25,22 @@ public class IntBST {
             rootNode = new IntNode(value);
         }
         else {
-            System.out.println("Inserting more than 1 item not implemented!");
-            // TODO: Implement this. The search() method is a good place to 
-            //  start, as it iterates through the tree in a similar way to 
-            //  insert()
+            IntNode currentNode = rootNode;
+
+            while (currentNode.getValue() != value) {
+                if (value > currentNode.getValue()) { // Right child path
+                    if (currentNode.getRightChild() == null) {
+                        currentNode.setRightChild(new IntNode(value));
+                    }
+                    currentNode = currentNode.getRightChild();
+                }
+                else { // Left child path
+                    if (currentNode.getLeftChild() == null) {
+                        currentNode.setLeftChild(new IntNode(value));
+                    }
+                    currentNode = currentNode.getLeftChild();
+                }
+            }
         }
     }
 
