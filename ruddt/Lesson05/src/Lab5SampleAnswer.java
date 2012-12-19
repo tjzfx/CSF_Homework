@@ -17,22 +17,30 @@ public class Lab5SampleAnswer {
     }
 
     public static void main(String[] args) {
-        String note = "foo";
-        String magazine = "foobarfoobar";
+        String note = "aakk";
+        String magazine = "aaabcdekfghikj";
 
         magazine = magazine.replaceAll("\\s","");
         note = note.replaceAll("\\s","");
 
-        // Print 'true' if the magazine has sufficient characters to build the note
-        // Print 'false' if  it does not
         Hashtable<Character, Integer> noteCharacterCounts = Lab5SampleAnswer.buildCharacterCountsForString(note);
-        Hashtable<Character, Integer> magCharacterCounts = Lab5SampleAnswer.buildCharacterCountsForString(magazine);
 
-        // For each character in the note's set of characters...
-        for (Character c : noteCharacterCounts.keySet()) {
-            // TODO:
-            // If the count for the characters in the magazine is less than the count for the note, print "false"
+        // For each magazine character, decrement the associated character in the note
+        // Note: This is case sensitive
+        for(int i = 0; i < magazine.length() && !noteCharacterCounts.isEmpty(); i++) {
+            Character magazineCharacter = new Character(magazine.charAt(i));
+            Integer count = noteCharacterCounts.get(magazineCharacter);
+
+            if (count != null) {
+                Integer newCount = new Integer(count.intValue() - 1);
+                if (newCount.intValue() == 0) {
+                    noteCharacterCounts.remove(magazineCharacter);
+                }
+                else {
+                    noteCharacterCounts.put(magazineCharacter, newCount);
+                }
+            }
         }
-        // Otherwise, print true
+        System.out.println(noteCharacterCounts.isEmpty());
     }
 }
