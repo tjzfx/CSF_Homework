@@ -5,7 +5,7 @@ public class TextGeneratorApplication {
 
     public static void main(String[] args) {
         Scanner s = null;
-        String filename = "constitution.txt";
+        String filename = "star_trek.txt";
 
         try {
             s = new Scanner(new BufferedReader(new FileReader(filename)));

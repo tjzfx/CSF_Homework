@@ -43,10 +43,34 @@ public class NGramTextGenerator {
     }
 
     public void printRandomText() {
-        // Start with random seed text
+        //Start with random seed text
         LinkedList<String> words = this.randomNMinusOneGram();
-
+        Set<LinkedList<String>> keySet = this.ngrams.keySet();
+        List<LinkedList<String>> keys = new ArrayList<LinkedList<String>>(keySet);
+        
         for (int i = 0; i < OUTPUT_WORD_COUNT; i++) {
+        	String firstWord = words.get(0);
+        	String secondWord = words.get(1);
+        	System.out.print(" " + firstWord + " " + secondWord);
+        	ArrayList<String> value = ngrams.get(words);
+            String stringValue = value.get(random.nextInt(value.size())).toString();
+            ArrayList<String> wordList = new ArrayList<String>();
+            for (int j = 0; j < keys.size(); j++) {
+            	LinkedList<String> tempSetOfKeys = keys.get(j);
+            	String firstKeyValue = tempSetOfKeys.get(0);
+            	if (firstKeyValue.equals(stringValue)) {
+            		words = tempSetOfKeys;
+            		keys.remove(j);
+            		return;
+            	}
+            }
+
+        	// print key for random n-gram (key is first two words)
+        	// look for n-gram with key that starts with first-ngrams value (the unprinted trailing word, there may be more than one value, so look for random value)
+        	// print key for found n-gram (two words that start with trailing word from previous n-gram]
+        	// look for n-gram with key that begins with second-ngrams value (again, the unprinted word)
+     	
+        	//System.out.println(words);
             // Homework: Given the generated map of ngrams and tailing words, generate random-seeming text
             // It should be OUTPUT_WORD_COUNT long
             // If you come across an ngram that doesn't exist in the map, call randomNGram to get a random one
@@ -57,9 +81,9 @@ public class NGramTextGenerator {
 
     public LinkedList<String> randomNMinusOneGram() {
         LinkedList<String> randomNGram = null;
-
         Set<LinkedList<String>> keySet = this.ngrams.keySet();
-        List<LinkedList<String>> keys      = new ArrayList<LinkedList<String>>(keySet);
+        
+        List<LinkedList<String>> keys  = new ArrayList<LinkedList<String>>(keySet);
         randomNGram = keys.get( random.nextInt(keys.size()) );
 
         return randomNGram;
