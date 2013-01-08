@@ -61,7 +61,7 @@ public class NGramTextGenerator {
             	if (firstKeyValue.equals(stringValue)) {
             		words = tempSetOfKeys;
             		keys.remove(j);
-            		return;
+            		break;
             	}
             }
 
