@@ -34,6 +34,8 @@ public class NGramTextGenerator {
             if (lastWords == null) {
                 lastWords = new ArrayList<String>();
             }
+            else {
+            }
 
             lastWords.add(lastWord);
             this.ngrams.put(nMinusOneGram, lastWords);
@@ -52,6 +54,20 @@ public class NGramTextGenerator {
             // If you come across an ngram that doesn't exist in the map, call randomNGram to get a random one
             // If words is an ngram that exist in the map, get its associated ArrayList<String> and use random.nextInt 
             //  to get a random value from it. After that, print that value
+
+            ArrayList<String> nMinusOneGram = this.ngrams.get(words);
+            if (nMinusOneGram == null) {
+                // Error handling, just print a comma and get another seed ngram
+                System.out.println(", ");
+                words = this.randomNMinusOneGram();
+                System.out.print(words);
+            }
+            else {
+                String randomEnding = nMinusOneGram.get(random.nextInt(nMinusOneGram.size()));
+                words.removeFirst();
+                words.addLast(randomEnding);
+                System.out.print(randomEnding + " ");
+            }
         }
     }
 
