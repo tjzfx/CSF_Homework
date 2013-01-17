@@ -61,6 +61,18 @@ public class Lesson10Labs {
         }       
     }
     
+    static void ThirdLab() 
+    {
+        // Assignment: Print the first N fibonacci numbers recursively, how fast is this?
+        int n = 10;
+    }
+    
+    static void FourthLab() 
+    {
+        // Assignment: Print the first N fibonacci numbers taking advantage of memoization. How fast is this?
+        int n = 10;
+    }
+    
     static final int EXP_CACHE_SIZE = 100;
     static float exp_cache[] = new float[EXP_CACHE_SIZE];
     
@@ -91,5 +103,7 @@ public class Lesson10Labs {
     {
         //FirstLab();
         SecondLab();
+        //ThirdLab();
+        //FourthLab();
     }
 }
