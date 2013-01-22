@@ -12,7 +12,7 @@ public class Application {
 		while(true) {
 			System.out.print("\nWelcome to " + restaurant.getRestaurantName());
 			Scanner consoleScanner = new Scanner(System.in);
-	        System.out.print("\nType 'add' or 'list' (or 'quit' to exit): ");
+	        System.out.print("\nType 'add', 'list', or 'lookup' (or 'quit' to exit): ");
 	        String result = consoleScanner.next();
         
 	        if (result.equals("add")) {
@@ -50,6 +50,20 @@ public class Application {
 	            
 	        }
 	        
+	        else if (result.equals("lookup")) {
+	        	System.out.print("Enter last name of reservation to lookup (case sensitive): ");
+		        String nameToLookUp = consoleScanner.next();
+		        ReservationIndex reservationIndex = reservationBook.getReservationIndex();
+		        Reservation reservation = lookUpReservationByName(nameToLookUp, reservationIndex); 
+		        if (reservation == null) {
+		        	System.out.print("\nSorry, couldn't find any reservations with that last name.");
+		        }
+		        else {
+		        	System.out.print("\nFound a reservation for " + reservation.getGuestLastName());
+		        	System.out.print(" at " + reservation.getReservationHour() + "pm for " + reservation.getPartySize() + " people.");
+		        }
+	        }
+	        
 	        else if (result.equals("quit")) {
 	        	System.out.println("Quitting");
 	        	return;
@@ -63,6 +77,11 @@ public class Application {
 	
 	public static void insertReservation(Reservation reservation, ReservationBook reservationBook, Restaurant restaurant) {
 		reservationBook.addReservation(reservation, restaurant);
+	}
+	
+	public static Reservation lookUpReservationByName(String nameToLookUp, ReservationIndex reservationIndex) {
+		Reservation reservation = reservationIndex.getReservationByName(nameToLookUp, reservationIndex);
+		return reservation;
 	}
 
 }

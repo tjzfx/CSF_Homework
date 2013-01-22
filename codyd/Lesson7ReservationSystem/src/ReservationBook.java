@@ -1,8 +1,10 @@
+import java.util.HashMap;
 import java.util.LinkedList;
 
 
 public class ReservationBook {
     private ReservationNode rootNode;
+    public ReservationIndex reservationIndex = new ReservationIndex();
     
     public void listReservations() {
         LinkedList<ReservationNode> queue = new LinkedList<ReservationNode>();
@@ -41,12 +43,14 @@ public class ReservationBook {
         	LinkedList<Reservation> reservationListForHour = foundReservationHour.getReservationListForHour();
         	reservationListForHour.add(reservation);
         	foundReservationHour.addOneReservationToCounter();
+        	reservationIndex.addReservationToIndex(reservation, reservationIndex);
         }
         else {
 	    	if (rootNode == null) {
 	    		LinkedList<Reservation> reservationListForHour = new LinkedList<Reservation>();
 	    		reservationListForHour.add(reservation);
 	            rootNode = new ReservationNode(reservationHour, reservationListForHour);
+	            reservationIndex.addReservationToIndex(reservation,reservationIndex);
 	        }
 	
 	        else {
@@ -91,6 +95,10 @@ public class ReservationBook {
         // If the current node exists and its value is equal to the input, return true, else return false
         return currentNode;
     }
+    
+    public ReservationIndex getReservationIndex(){
+		return reservationIndex;
+	}
 
     public void remove(int value) {
         // TODO: 
