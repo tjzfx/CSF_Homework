@@ -72,6 +72,13 @@ public class Lesson10Labs {
         
     }
     
+    static void BstLab() 
+    {
+    	BSTLab bstLab = new BSTLab();
+       bstLab.printAllValues() ;
+        
+    }
+    
     static final int EXP_CACHE_SIZE = 100;
     static float exp_cache[] = new float[EXP_CACHE_SIZE];
     
@@ -101,8 +108,9 @@ public class Lesson10Labs {
     public static void main(String[] args)
     {
         //FirstLab();
-        SecondLab();
+        //SecondLab();
         //ThirdLab();
         //FourthLab();
+    	BstLab();
     }
 }
