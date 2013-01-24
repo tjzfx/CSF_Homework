@@ -23,16 +23,37 @@ public class Library {
 		return libraryItems;
 	}
 	
+	public HashMap<String, Item> getAvailLibraryItems() {
+		return libraryItems;
+	}
+	
 	public void setLibraryItems(HashMap<String, Item> libraryItems) {
 		this.libraryItems = libraryItems;
 	}
 	
 	public void issueItem(User user, Item item) {
+		if ((item.isLoanable == true) && (item.isLoaned == false) && (user.getIsOverdue() == false)) {
 		user.addLoanedItem(item);
+		item.setIsLoaned(true);
+		}
+		else if (item.isLoaned == true) {
+			System.out.print("\nSorry, that item is already checked out.");
+			return;
+		}
+		else if (user.getIsOverdue() == true) {
+			System.out.print("\nSorry, that user has overdue books.");
+			return;
+		}
+		else if (item.getIsLoanable() == false) {
+			System.out.print("\nSorry, that item is not available to be checked out.");
+			return;
+		}
 	}
+	
 	
 	public void returnItem(User user, Item item) {
 		user.returnLoanedItem(item);
+		item.isLoaned = false;
 	}
 	
 	public void addItemToLibrary(Item item) {
@@ -52,4 +73,6 @@ public class Library {
 		User user = libraryUsers.get(tempUser);
 		return user;
 	}
+	
+	
 }

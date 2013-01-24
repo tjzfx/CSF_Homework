@@ -13,6 +13,8 @@ public class ItemDVD extends Item {
 	public ItemDVD(String director, String title) {
 		super.title = title;
 		this.director = director;
+		super.isLoanable = true;
+		super.loanPeriodDays = 3;
 	}
 
 	public String getDirector() {

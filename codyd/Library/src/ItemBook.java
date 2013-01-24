@@ -12,6 +12,7 @@ public class ItemBook extends Item {
 	public ItemBook(String author, String title) {
 		this.author = author;
 		super.title = title;
+		super.isLoanable = true;
 	}
 
 	public String getAuthor() {

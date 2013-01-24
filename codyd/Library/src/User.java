@@ -52,6 +52,13 @@ public class User {
 		this.loanedItems = loanedItems;
 	}
 	
+	public void showLoanedItems() {
+		ArrayList<Item> items = this.getLoanedItems();
+		for (int i=0; items.size() > i; i++) {
+			System.out.print(" " + items.get(i).getTitle());
+		}
+	}
+	
 	public void addLoanedItem(Item item) {
 		this.loanedItems.add(item);
 	}
