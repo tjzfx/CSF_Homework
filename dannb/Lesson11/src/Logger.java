@@ -9,8 +9,8 @@ public class Logger {
 	static public Logger getInstance() {
 		if (!created) {
 			Logger logger = new Logger();
+			System.out.println("logger was created");
 			Logger.created = true;
-			System.out.println("new instance created");
 			return logger;
 		}
 		return null;
