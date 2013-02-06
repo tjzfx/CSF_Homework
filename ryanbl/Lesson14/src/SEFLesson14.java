@@ -4,12 +4,14 @@ import java.nio.channels.SeekableByteChannel;
 import java.nio.charset.Charset;
 import java.nio.file.*;
 import static java.nio.file.StandardOpenOption.*;
+import java.util.HashSet;
 
 public class SEFLesson14 {
 
 	/**
 	 * @param args
 	 */
+	
 	public static void main(String [] args) {
 		
 		// Set up some data to save and restore.
@@ -18,7 +20,7 @@ public class SEFLesson14 {
 		{
 			binaryData[i] = i;
 		}
-		
+		HashSet<String> scrabbleDictionary = new HashSet<String>();
 		Path binaryPath = Paths.get("C:/dump.dat");
 		Path textPath = Paths.get("/Users/ryanblair/Sites/SES_Homework/ryanbl/Lesson14/words.txt");
 		/*
@@ -48,12 +50,14 @@ public class SEFLesson14 {
 			BufferedReader reader = Files.newBufferedReader(textPath, charset);
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				System.out.println(line);
+				scrabbleDictionary.add(line);
 			}
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		int dictionarySize = scrabbleDictionary.size();
+		System.out.print(dictionarySize);
 		/*
 		// Unbuffered, streamed
 		try (OutputStream out = new BufferedOutputStream(
