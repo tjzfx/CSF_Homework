@@ -9,6 +9,7 @@ public class ScrabbleClone {
 	public static void main(String[] args) {
 		Game scrabble = new Game();
 
+		
 	}
 
 }
