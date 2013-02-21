@@ -10,4 +10,8 @@ public class Board {
 	public char[][] getGameBoard() {
 		return gameBoard;
 	}
+	
+	public void setGameBoard(char[][] c) {
+		gameBoard = c;
+	}
 }
