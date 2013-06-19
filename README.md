@@ -1,4 +1,4 @@
-![GA_Logo](./assets/GA_Logo.png)
+
 #COMPUTER SCIENCE FUNDAMENTALS (CSF)
 ###COURSE SYLLABUS
 
