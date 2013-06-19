@@ -1,4 +1,3 @@
-
 #COMPUTER SCIENCE FUNDAMENTALS (CSF)
 ###COURSE SYLLABUS
 
@@ -72,7 +71,7 @@ SQL, non-relational data stores (NoSQL), message queues
 
 **SESSION 17:**
 Final Project Workshop
-Guest Speaker or Site Visit?
+Guest Speaker or Site Visit
 
 
 **SESSION 18:**
@@ -85,7 +84,7 @@ Final Project Workshop
 
 
 **SESSION 20:**
-Next Steps (TA Content?)
+Next Steps, TA Content
 
 
 **(SESSION 21):**
