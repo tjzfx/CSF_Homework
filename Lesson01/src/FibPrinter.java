@@ -16,6 +16,8 @@ public class FibPrinter {
 
     // Allocates an array that's n long
     public long numberAtPositionWithBigArray(int n) {
+        // n is human-readable numbers, starting with 1
+        // n = 0 is invalid input
         long[] fibArray = new long[n];
 
         if (n > 1) {
@@ -29,14 +31,16 @@ public class FibPrinter {
 
     // Doesn't allocate an array that's n long
     public long numberAtPositionWithoutBigArray(int n) {
+        // As we calculate each number in the sequence, shift the array left
+        //  and calculate the new number
         int[] fibNumbers = {0, 1, 1};
 
         if (n < 2) return fibNumbers[n - 1];
         for (int i = 2; i < n - 1; i++) {
-            // As we calculate each number in the sequence, shift the array left
-            //  and calculate the new number
+            // Shift left
             fibNumbers[0] = fibNumbers[1];
             fibNumbers[1] = fibNumbers[2];
+            // Calculate the new fib number and repeat
             fibNumbers[2] = fibNumbers[1] + fibNumbers[0];
         }
 

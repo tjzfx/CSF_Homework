@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class HelloWorldPrinter {
+
     public void helloWorld() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Your name: ");
