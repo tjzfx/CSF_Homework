@@ -1,5 +1,3 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class FibSequence {
     /**
      * Returns the nth fibonacci number, recursively computed.
@@ -14,7 +12,14 @@ public class FibSequence {
     int fibNumber(int n) {
         // TODO: Fill out to make FibSequenceTest pass
 
-        throw new NotImplementedException();
+        // Instructor sample soln:
+        if (n == 0) {
+            return 0;
+        }
+        else if (n == 1) {
+            return 1;
+        }
+        return fibNumber(n - 1) + fibNumber(n - 2);
     }
 
 }

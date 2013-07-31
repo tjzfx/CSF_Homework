@@ -51,7 +51,9 @@ public class CoinCounter {
                  * Repeat
                 * Return the calculated value for totalSum
 
-            A sample solution:
+            First assignment: Make testNumberOfCoinsRequired pass
+            Second assignment: Make testWonderlandDenominations pass
+            Third assignment: Make testTerribleDenominations pass
          */
 
         // Speed, O(m * n), m = totalSum, n = number of coins
@@ -88,6 +90,28 @@ public class CoinCounter {
          - What is your recursive step?
          */
 
-        throw new NotImplementedException();
+//        throw new NotImplementedException();
+
+        // Instructor sample soln:
+        if (totalSum == 0) {
+            return 0;
+        }
+        else if (Arrays.binarySearch(this.denominations, totalSum) >= 0) {
+            return 1;
+        }
+        else if (totalSum < 0) {
+            return CHANGE_NOT_POSSIBLE_FLAG;
+        }
+
+        int lowestChild = CHANGE_NOT_POSSIBLE_FLAG;
+
+        for (int denomination : this.denominations) {
+            int result = recursiveNumberOfCoinsRequired(totalSum - denomination);
+            if (result < lowestChild) {
+                lowestChild = result;
+            }
+        }
+
+        return lowestChild == CHANGE_NOT_POSSIBLE_FLAG ? lowestChild : lowestChild + 1;
     }
 }
