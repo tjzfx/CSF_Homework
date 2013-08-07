@@ -1,3 +1,12 @@
+package com.generalassembly;
+
+/**
+ * A class representing a Domino, and its current state.
+ * @author Frank Kane (fkane@sundog-soft.com)
+ * @version     1.0                 
+ * @since       2012-11-05
+ *
+ */
 public class Domino {
 
 	// The values at each end of the domino
@@ -12,7 +21,7 @@ public class Domino {
 	 * @param val1 The numeric value of one end of the domino.
 	 * @param val2 The numeric value of the other end of the domino.
 	 */
-	public domino(int val1, int val2) {
+	public Domino(int val1, int val2) {
 		if (val1 < 1 || val1 > 6 || val2 < 1 || val2 > 6) {
 			throw new IllegalArgumentException("Domino values range from 1-6");
 		}
@@ -27,7 +36,7 @@ public class Domino {
 	 * Retrieve the value of end#1 of the domino.
 	 * @return The value of end 1.
 	 */
-	public int getValue1() {
+	public int GetValue1() {
 		return value1;
 	}
 	
@@ -35,7 +44,7 @@ public class Domino {
 	 * Retrive the value of end#2 of the domino.
 	 * @return The value of end 2.
 	 */
-	public int getValue2() {
+	public int GetValue2() {
 		return value2;
 	}
 	
@@ -43,7 +52,7 @@ public class Domino {
 	 * Marks this domino as being played, in a specific orientation.
 	 * @param value The end number that was matched against another domino.
 	 */
-	public void play(int value) {
+	public void Play(int value) {
 		if (value < 1 || value > 2) {
 			throw new IllegalArgumentException();
 		}
@@ -69,7 +78,7 @@ public class Domino {
 	 * Retrieves whether this domino is in the bag.
 	 * @return True if the domino is in the bag, or false if it has already been played.
 	 */
-	public boolean getFree() {
+	public boolean GetFree() {
 		return !placed;
 	}
 	
@@ -81,7 +90,7 @@ public class Domino {
 	 * @param d The domino you are testing for a match against this domino.
 	 * @return True if this domino is matched with this domino, if false if it could not be matched.
 	 */
-	public boolean match(Domino d) {
+	public boolean Match(Domino d) {
 		if (!d.GetFree()) {
 			return false;
 		}
@@ -101,11 +110,11 @@ public class Domino {
 		}
 		
 		if (freeValue == 2) {
-			if (d.getValue1() == value2) {
-				d.play(1);
+			if (d.GetValue1() == value2) {
+				d.Play(1);
 				return true;
-			} else if (d.getValue2() == value2) {
-				d.play(2);
+			} else if (d.GetValue2() == value2) {
+				d.Play(2);
 				return true;
 			}			
 		}
