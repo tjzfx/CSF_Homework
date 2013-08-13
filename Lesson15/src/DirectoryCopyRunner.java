@@ -17,7 +17,7 @@ public class DirectoryCopyRunner {
         System.out.print("\nEnter a destination directory name: ");
         String destPath = scanner.next();
 
-        AsyncDirectoryCopier_Solution dirCopier = new AsyncDirectoryCopier_Solution();
+        AsyncDirectoryCopier dirCopier = new AsyncDirectoryCopier();
         //DirectoryCopier dirCopier = new DirectoryCopier();
 
         File source = new File(sourcePath);
