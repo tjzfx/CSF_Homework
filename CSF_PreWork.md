@@ -21,8 +21,8 @@ Prior to **12/2/2013** please complete the following:
 **CS 106A at Stanford (Lectures 4 – 5):**   
 Provides a good intro to core computer science topics that will be helpful through this course
 
-- Lecture 4: http://www.youtube.com/watch?v=NPzPnycCFuE&list=EC84A56BC7F4A1F852
-- Lecture 5: http://www.youtube.com/watch?v=nWheM30THaY&list=EC84A56BC7F4A1F852
+- Lecture 4: http://www.youtube.com/watch?v=nWheM30THaY&list=EC84A56BC7F4A1F852
+- Lecture 5: http://www.youtube.com/watch?v=NPzPnycCFuE&list=EC84A56BC7F4A1F852
 
 **Other Tutorials:**
 
