@@ -29,6 +29,7 @@ Provides a good intro to core computer science topics that will be helpful throu
 
 - Learn Java Online: http://www.learnjavaonline.org/  ← complete “Learn the Basics”
 - TryGit (Version Control): http://www.codeschool.com/courses/try-git
+- Java cheat sheet: http://introcs.cs.princeton.edu/java/11cheatsheet/
 
 
 **Articles/Links:**
