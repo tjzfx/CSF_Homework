@@ -16,6 +16,7 @@ Prior to **12/4/2013** please complete the following:
 - IntelliJ IDEA:  http://www.jetbrains.com/idea/
 - Git Version Control:  http://git-scm.com/downloads
 - SourceTree (SCM Client):  http://www.sourcetreeapp.com
+- Java 7:  http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
 
 
 **CS 106A at Stanford (Lectures 4 – 5):**   
