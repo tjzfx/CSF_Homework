@@ -1,11 +1,11 @@
 #COMPUTER SCIENCE FUNDAMENTALS (CSF)
 ###COURSE SYLLABUS
 
-**sESSION 1:**
+**SESSION 1:**
 Using an IDE, components of a computer, static vs. 
 dynamic languages, running simple programs. 
 
-**sESSION 2:**
+**SESSION 2:**
 Java programming overview – compiled vs. interpreted language, variables, control-flow, loops, functions
 
 **SESSION 3:**
