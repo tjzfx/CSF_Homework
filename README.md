@@ -5,7 +5,7 @@
 Using an IDE, components of a computer, static vs. 
 dynamic languages, running simple programs. 
 
-**SESSION 2:**
+**sESSION 2:**
 Java programming overview – compiled vs. interpreted language, variables, control-flow, loops, functions
 
 **SESSION 3:**
