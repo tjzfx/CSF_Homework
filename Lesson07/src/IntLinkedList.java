@@ -44,12 +44,14 @@ public class IntLinkedList {
         if (this.contains(value)) {
             while (node != null) {
                 if (node.getValue() == value) {
-                    //prev is assigned
                     if (prev != null) {
                         prev.setNextNode(node.getNextNode());
-                        node = null;
                     } else {
                         firstNode = node.getNextNode();
+                    }
+                    node = null;
+                } else {
+                   firstNode = node.getNextNode();
                         node = null;
                     }
                 }
@@ -58,5 +60,4 @@ public class IntLinkedList {
             }
         }
 
-    }
 }
