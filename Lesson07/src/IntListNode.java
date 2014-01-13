@@ -1,5 +1,6 @@
 
 public class IntListNode {
+    //each node has to have these two things
     private int value;
     private IntListNode nextNode;
 
