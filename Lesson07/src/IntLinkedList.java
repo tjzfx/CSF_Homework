@@ -60,4 +60,11 @@ public class IntLinkedList {
             }
         }
 
+    public void print() {
+        IntListNode node = firstNode;
+        while (node != null) {
+            System.out.print(node.getValue() + " ");
+            node = node.getNextNode();
+        }
+    }
 }
