@@ -70,31 +70,35 @@ public class NGramTextGenerator {
         StringWriter stringWriter = new StringWriter(this.OUTPUT_WORD_COUNT);
         stringWriter.append(ngramStringRepresentation(words));
 
-        for (int i = 0; i < OUTPUT_WORD_COUNT; i++) {
-            // Homework TODO: Given the generated map of ngrams and tailing words, generate random-seeming text!
-            // * It should be OUTPUT_WORD_COUNT long
-            // * If words is an ngram that exist in the map, get its associated ArrayList<String> and use random.nextInt
-            //   to get a random value from it. After that, append that value
-            // * If you come across an ngram that doesn't exist in the map, call randomNGram to get a random one
-            // * To do all this, you should not need to make changes outside of this method.
-            //
-            // Bonus opportunities (that will require changes to be made outside of this method):
-            // * Instead of starting your text with a random ngram, instead start with the first ngram in the sample text you were given.
-            // * Make output word length, ngram length user-settable parameters
+        ArrayList<String> allTrailingWords = new ArrayList<String>();
+        String trailingWord = new String();
 
-            ArrayList<String> trailingWords = this.ngrams.get(words);
-            if (trailingWords == null) {
-                // Error handling, just print a comma and get another seed ngram
-                stringWriter.append(", ");
-                words = this.randomNGram();
-                stringWriter.append(ngramStringRepresentation(words));
+        // Homework TODO: Given the generated map of ngrams and tailing words, generate random-seeming text!
+        // * It should be OUTPUT_WORD_COUNT long
+        // * If words is an ngram that exist in the map, get its associated ArrayList<String> and use random.nextInt
+        //   to get a random value from it. After that, append that value
+        // * If you come across an ngram that doesn't exist in the map, call randomNGram to get a random one
+        // * To do all this, you should not need to make changes outside of this method.
+
+        for (int i = 0; i < OUTPUT_WORD_COUNT; i++) {
+            if (ngrams.containsKey(words)) {
+                //grab words
+                allTrailingWords = ngrams.get(words);
+
+                //use string builder and add space with append
+                trailingWord = allTrailingWords.get(random.nextInt(allTrailingWords.size())).toString();
+                stringWriter.append(" " + trailingWord);
+            } else {
+                //check for zero ngrams and move get random
+                while (!ngrams.containsKey(words)) {words = randomNGram();}
+
+                //assign random to allTrailingWords
+                allTrailingWords = ngrams.get(words);
+                trailingWord = allTrailingWords.get(random.nextInt(allTrailingWords.size())).toString();
+                stringWriter.append(" " + trailingWord);
             }
-            else {
-                String randomEnding = trailingWords.get(random.nextInt(trailingWords.size()));
-                words.removeFirst();
-                words.addLast(randomEnding);
-                stringWriter.append(randomEnding + " ");
-            }
+            words.set(0, words.get(1));
+            words.set(1, trailingWord);
         }
         return stringWriter.toString();
     }
